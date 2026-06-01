@@ -27,6 +27,12 @@ Future milestones will use this inventory as the input for:
 - Incident tracking
 - Audit evidence reporting
 
+## Policy Findings
+
+Milestone 3 converts each AI inventory record into governance findings by running enabled rules from `config/policy_checks.yaml`. Each rule produces a pass, warning, or fail result with severity, policy category, evidence field, finding text, and a recommendation.
+
+The current policy checks evaluate minimum control readiness across ownership, risk management, production approval, production monitoring, documentation, access control, cost accountability, and incident process readiness. These findings will later become inputs to risk scoring, exception tracking, audit evidence packs, and executive reporting.
+
 ## Current Milestone
 
-Milestone 2 implements the local synthetic AI system inventory and model catalogue. No AWS services are connected, and no real data is used.
+Milestone 3 implements local governance policy checks against the synthetic AI system inventory. No AWS services are connected, and no real data is used.

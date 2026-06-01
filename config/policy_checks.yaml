@@ -1,33 +1,49 @@
 rules:
   owner_required:
     enabled: true
+    policy_name: owner_required
+    category: ownership
     severity: high
     description: Each AI system must have a named accountable owner.
   risk_tier_required:
     enabled: true
+    policy_name: risk_tier_required
+    category: risk_management
     severity: high
     description: Each AI system must have an assigned risk tier.
   approval_required_for_production:
     enabled: true
+    policy_name: approval_required_for_production
+    category: approval
     severity: critical
     description: Production deployments must have recorded approval.
   monitoring_required_for_production:
     enabled: true
+    policy_name: monitoring_required_for_production
+    category: monitoring
     severity: critical
     description: Production deployments must define monitoring expectations.
-  model_card_required:
+  model_card_required_for_high_risk:
     enabled: true
+    policy_name: model_card_required_for_high_risk
+    category: documentation
     severity: medium
-    description: Governed AI systems should have a model card or equivalent record.
-  access_review_required:
+    description: High and critical risk AI systems should have a completed model card.
+  access_review_required_for_production:
     enabled: true
+    policy_name: access_review_required_for_production
+    category: access_control
     severity: high
-    description: Access to governed AI systems must be periodically reviewed.
-  cost_threshold_required:
+    description: Production AI systems must have a completed access review.
+  cost_center_required:
     enabled: true
+    policy_name: cost_center_required
+    category: cost_management
     severity: medium
-    description: AI systems should map to an approved cost threshold.
-  incident_process_required:
+    description: AI systems should map to an accountable cost center.
+  incident_process_required_for_high_risk:
     enabled: true
+    policy_name: incident_process_required_for_high_risk
+    category: incident_management
     severity: high
-    description: AI systems must have an incident escalation process.
+    description: High and critical production AI systems must have a defined incident process.

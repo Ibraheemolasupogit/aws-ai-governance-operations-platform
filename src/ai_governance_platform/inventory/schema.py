@@ -20,6 +20,7 @@ ApprovalStatus = Literal["pending", "approved", "rejected", "not_required"]
 MonitoringStatus = Literal["not_enabled", "basic", "enhanced", "production_ready"]
 ModelCardStatus = Literal["missing", "draft", "complete"]
 AccessReviewStatus = Literal["not_started", "in_progress", "complete", "overdue"]
+IncidentProcessStatus = Literal["not_defined", "defined", "tested"]
 
 
 class AISystemRecord(BaseModel):
@@ -44,6 +45,7 @@ class AISystemRecord(BaseModel):
     monitoring_status: MonitoringStatus
     model_card_status: ModelCardStatus
     access_review_status: AccessReviewStatus
+    incident_process_status: IncidentProcessStatus = "not_defined"
     cost_center: str = Field(min_length=2)
     created_date: date
     last_review_date: date

@@ -127,11 +127,28 @@ Expected local outputs:
 
 The generated records are synthetic and are intended to support later governance checks, access review, risk scoring, cost monitoring, model cards, incident tracking, and audit evidence reporting.
 
+## Milestone 3: Governance Policy Checks
+
+Milestone 3 adds a local, config-driven governance policy check engine. It evaluates the synthetic AI inventory against minimum responsible AI operating controls, including ownership, risk tier assignment, production approval, production monitoring readiness, high-risk model card status, production access review completion, cost center assignment, and incident process readiness.
+
+Run the policy checks locally:
+
+```bash
+python3 -m ai_governance_platform.policy_checks.run_policy_checks
+```
+
+Expected local outputs:
+
+- `outputs/governance_findings.csv`
+- `outputs/governance_findings.json`
+
+The findings are generated from local synthetic records only. No AWS services are connected and no real operational data is used.
+
 ## Current Status
 
-Milestone 2 is complete. The repository contains a clean Python package layout, configuration placeholders, policy placeholders, documentation stubs, CI configuration, a validated synthetic AI system inventory, and tests for the inventory schema, generator, and exporters.
+Milestone 3 is complete. The repository contains a clean Python package layout, configuration placeholders, policy placeholders, documentation stubs, CI configuration, a validated synthetic AI system inventory, a config-driven governance policy check engine, local findings exports, and tests for the inventory and policy modules.
 
-The platform does not yet include dashboards, AWS integrations, risk scoring, policy checks, monitoring logic, incident workflows, model card generation, or generated governance reports.
+The platform does not yet include dashboards, AWS integrations, risk scoring, access review workflows, monitoring logic, incident workflows, model card generation, or executive governance reports.
 
 ## How To Run Locally
 
