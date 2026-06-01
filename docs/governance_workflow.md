@@ -67,6 +67,14 @@ The risk register supports prioritisation and recurring governance review by gro
 
 Remediation tracking connects each issue to an owner, priority, target resolution date, recommended action, residual risk, and evidence reference.
 
+## Model Cards And Reporting
+
+Milestone 8 converts governance outputs into readable artifacts. Model cards document intended use, out-of-scope use, limitations, responsible AI considerations, monitoring approach, approval status, and risk controls for each AI system.
+
+Evidence packs consolidate inventory, policy checks, access review, audit events, cost monitoring, model monitoring, incidents, and risk registers into audit-friendly Markdown reports.
+
+Executive reports translate technical governance outputs into business-level decisions, including key strengths, key risks, priority actions, and AWS architecture relevance.
+
 ## Current Milestone
 
-Milestone 7 implements local incident and risk register generation. No AWS services are connected, and no real data is used.
+Milestone 8 implements local model cards and evidence reporting. No AWS services are connected, and no real data is used.

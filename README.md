@@ -230,11 +230,39 @@ Expected local outputs:
 
 The registers are generated from synthetic local data only and are intended to demonstrate governance operations ownership, prioritisation, remediation, and evidence traceability.
 
+## Milestone 8: Model Cards And Evidence Pack Reporting
+
+Milestone 8 converts local governance outputs into portfolio-ready reporting artifacts: model cards, a governance report, an audit evidence pack, a model risk summary, and an executive summary.
+
+Run model card generation locally:
+
+```bash
+python3 -m ai_governance_platform.model_cards.run_model_cards
+```
+
+Run reporting locally:
+
+```bash
+python3 -m ai_governance_platform.reporting.run_reporting
+```
+
+Expected local outputs:
+
+- `outputs/model_cards.csv`
+- `outputs/model_cards.json`
+- `outputs/governance_report_summary.csv`
+- `outputs/governance_report_summary.json`
+- `reports/model_cards/`
+- `reports/ai_governance_report.md`
+- `reports/audit_evidence_pack.md`
+- `reports/model_risk_register.md`
+- `reports/executive_summary.md`
+
 ## Current Status
 
-Milestone 7 is complete. The repository contains synthetic AI inventory, governance policy checks, risk scoring, access review, audit simulation, cost monitoring, model/system monitoring, incident register generation, risk register generation, local exports, and tests across the implemented modules.
+Milestone 8 is complete. The repository contains synthetic AI inventory, governance policy checks, risk scoring, access review, audit simulation, cost monitoring, model/system monitoring, incident and risk registers, model cards, governance reports, local exports, and tests across the implemented modules.
 
-The platform does not yet include dashboards, AWS integrations, model card generation, final evidence packs, or executive governance reports.
+The platform does not yet include dashboards, AWS integrations, or production service integrations.
 
 ## How To Run Locally
 

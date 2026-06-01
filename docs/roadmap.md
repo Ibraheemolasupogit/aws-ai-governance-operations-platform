@@ -64,3 +64,12 @@ Status: implemented.
 - Model card templates
 - Audit evidence pack
 - Executive report summary
+
+Status: implemented.
+
+## Milestone 9: AWS Architecture And Operations Design
+
+- AWS architecture documentation
+- Operational workflow design
+- Deployment and evidence flow diagrams
+- Portfolio-ready architecture narrative
