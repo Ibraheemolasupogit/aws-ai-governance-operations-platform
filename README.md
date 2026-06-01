@@ -186,11 +186,36 @@ Expected local outputs:
 
 The access review and audit records are synthetic local evidence only. No IAM, CloudTrail, or AWS APIs are used.
 
+## Milestone 6: Cost And Monitoring Summaries
+
+Milestone 6 adds local synthetic operational telemetry for AI platform cost monitoring and CloudWatch-style model/system monitoring. Cost records estimate monthly Bedrock-style, SageMaker-style, training, inference, and storage costs, then evaluate threshold status and anomaly indicators. Monitoring records summarize latency, error rate, drift, quality, availability, guardrail violations, hallucination risk flags, alert counts, health status, and retraining advisory.
+
+Run cost monitoring locally:
+
+```bash
+python3 -m ai_governance_platform.cost_management.run_cost_monitoring
+```
+
+Run model/system monitoring locally:
+
+```bash
+python3 -m ai_governance_platform.monitoring.run_monitoring
+```
+
+Expected local outputs:
+
+- `outputs/cost_monitoring.csv`
+- `outputs/cost_monitoring.json`
+- `outputs/model_monitoring.csv`
+- `outputs/model_monitoring.json`
+
+The cost and monitoring records are synthetic local operational summaries only. No Cost Explorer, Budgets, CloudWatch, Bedrock, SageMaker, or AWS APIs are used.
+
 ## Current Status
 
-Milestone 5 is complete. The repository contains a clean Python package layout, synthetic AI inventory, governance policy checks, risk scoring, IAM-style access review simulation, CloudTrail-style audit event simulation, local exports, and tests across the implemented modules.
+Milestone 6 is complete. The repository contains a clean Python package layout, synthetic AI inventory, governance policy checks, risk scoring, IAM-style access review simulation, CloudTrail-style audit event simulation, cost monitoring, model/system monitoring, local exports, and tests across the implemented modules.
 
-The platform does not yet include dashboards, AWS integrations, monitoring logic, cost analytics, incident register workflows, model card generation, or executive governance reports.
+The platform does not yet include dashboards, AWS integrations, incident register workflows, model card generation, evidence packs, or executive governance reports.
 
 ## How To Run Locally
 

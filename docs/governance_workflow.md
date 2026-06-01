@@ -51,6 +51,14 @@ Synthetic audit events support traceability by recording model registrations, ap
 
 Together, these outputs provide local evidence that will feed future incident registers, audit evidence packs, access remediation tracking, and executive reporting.
 
+## Cost And Monitoring Evidence
+
+Milestone 6 adds synthetic cost and monitoring summaries. Cost monitoring supports financial governance by estimating monthly AI system spend, checking local thresholds, identifying approaching and breached thresholds, and flagging cost anomalies for owner review.
+
+Monitoring summaries support operational governance by tracking CloudWatch-style health indicators such as latency, p95 latency, error rate, drift, quality, availability, guardrail violations, hallucination risk flags, and alert volume. Each system receives a health status, retraining advisory, and recommended action.
+
+These outputs will feed future incident and risk registers, audit evidence reporting, cost governance reviews, and executive summaries.
+
 ## Current Milestone
 
-Milestone 5 implements local access review and audit event simulation. No AWS services are connected, and no real data is used.
+Milestone 6 implements local cost and monitoring summaries. No AWS services are connected, and no real data is used.

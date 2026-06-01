@@ -48,9 +48,17 @@ Status: implemented.
 - Cost threshold findings
 - System health evidence
 
-## Milestone 7: Evidence and Reporting
+Status: implemented.
+
+## Milestone 7: Incident And Risk Register
+
+- Incident register
+- Risk register
+- Remediation tracking
+- Links to access, audit, cost, monitoring, and policy evidence
+
+## Milestone 8: Evidence and Reporting
 
 - Model card templates
 - Audit evidence pack
-- Incident and risk register
 - Executive report summary
