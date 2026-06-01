@@ -43,6 +43,14 @@ Milestone 4 turns inventory and policy findings into system-level risk scores. T
 
 Each system receives component scores, an overall 0-100 score, a risk rating, a remediation priority, and a recommended action. These scores will support later risk registers, access review prioritisation, audit evidence reporting, incident workflows, and executive summaries.
 
+## Access Review And Audit Evidence
+
+Milestone 5 adds synthetic access review and audit event evidence. Access review supports least privilege governance by identifying privileged access, production admin access, expired access, weak service role justification, stale production reviews, and owner access that should be tightly controlled.
+
+Synthetic audit events support traceability by recording model registrations, approvals, deployments, prompt updates, guardrail changes, access grants and revocations, monitoring alerts, policy checks, risk scoring, incident creation, and remediation completion.
+
+Together, these outputs provide local evidence that will feed future incident registers, audit evidence packs, access remediation tracking, and executive reporting.
+
 ## Current Milestone
 
-Milestone 4 implements local risk scoring against synthetic inventory and policy findings. No AWS services are connected, and no real data is used.
+Milestone 5 implements local access review and audit event simulation. No AWS services are connected, and no real data is used.

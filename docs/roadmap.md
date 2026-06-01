@@ -32,14 +32,23 @@ Status: implemented.
 
 Status: implemented.
 
-## Milestone 5: Operations Signals
+## Milestone 5: Access Review And Audit Simulation
 
 - Access review and audit event simulation
-- Local audit, monitoring, and cost summaries
-- Synthetic sample inputs
+- Synthetic IAM-style access records
+- Synthetic CloudTrail-style audit events
 - Evidence-ready governance outputs
 
-## Milestone 6: Evidence and Reporting
+Status: implemented.
+
+## Milestone 6: Cost And Monitoring
+
+- Local cost summaries
+- Local monitoring and drift summaries
+- Cost threshold findings
+- System health evidence
+
+## Milestone 7: Evidence and Reporting
 
 - Model card templates
 - Audit evidence pack

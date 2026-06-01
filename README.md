@@ -161,11 +161,36 @@ Expected local outputs:
 
 The risk scores are generated from local synthetic records and local policy findings only. No AWS services are connected and no real operational data is used.
 
+## Milestone 5: Access Review And Audit Event Simulation
+
+Milestone 5 adds local synthetic evidence modules for IAM-style access review and CloudTrail-style audit event simulation. Access review records show who has access to AI systems, whether privileged or production access is risky, and which access records need remediation. Audit events simulate traceable model, access, approval, monitoring, guardrail, policy, risk, and incident activity.
+
+Run the access review locally:
+
+```bash
+python3 -m ai_governance_platform.access_review.run_access_review
+```
+
+Run the audit simulation locally:
+
+```bash
+python3 -m ai_governance_platform.audit.run_audit_simulation
+```
+
+Expected local outputs:
+
+- `outputs/access_review.csv`
+- `outputs/access_review.json`
+- `outputs/audit_events.csv`
+- `outputs/audit_events.json`
+
+The access review and audit records are synthetic local evidence only. No IAM, CloudTrail, or AWS APIs are used.
+
 ## Current Status
 
-Milestone 4 is complete. The repository contains a clean Python package layout, configuration placeholders, policy placeholders, documentation stubs, CI configuration, a validated synthetic AI system inventory, a config-driven governance policy check engine, local findings exports, config-driven risk scoring, risk score exports, and tests for the inventory, policy, and risk modules.
+Milestone 5 is complete. The repository contains a clean Python package layout, synthetic AI inventory, governance policy checks, risk scoring, IAM-style access review simulation, CloudTrail-style audit event simulation, local exports, and tests across the implemented modules.
 
-The platform does not yet include dashboards, AWS integrations, access review workflows, audit simulation, monitoring logic, incident workflows, model card generation, or executive governance reports.
+The platform does not yet include dashboards, AWS integrations, monitoring logic, cost analytics, incident register workflows, model card generation, or executive governance reports.
 
 ## How To Run Locally
 
