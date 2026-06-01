@@ -1,13 +1,75 @@
 scoring_weights:
   business_criticality: 0.20
-  data_sensitivity: 0.20
+  data_sensitivity: 0.15
   deployment_exposure: 0.15
   access_risk: 0.15
   monitoring_maturity: 0.10
   cost_risk: 0.10
   compliance_gaps: 0.10
-risk_tier_thresholds:
-  low: 0
-  medium: 40
-  high: 70
-  critical: 90
+  policy_failures: 0.05
+
+lookup_scores:
+  risk_tier:
+    low: 15
+    medium: 40
+    high: 70
+    critical: 95
+  lifecycle_status:
+    experimental: 15
+    validation: 35
+    approved: 50
+    production: 80
+    retired: 10
+  data_sensitivity:
+    public: 10
+    internal: 30
+    confidential: 65
+    restricted: 90
+  deployment_environment:
+    local: 10
+    dev: 20
+    test: 30
+    staging: 55
+    production: 90
+  monitoring_status:
+    not_enabled: 90
+    basic: 65
+    enhanced: 30
+    production_ready: 10
+  access_review_status:
+    not_started: 85
+    in_progress: 55
+    complete: 10
+    overdue: 95
+  approval_status:
+    pending: 60
+    approved: 10
+    rejected: 95
+    not_required: 20
+  model_card_status:
+    missing: 85
+    draft: 50
+    complete: 10
+  incident_process_status:
+    not_defined: 90
+    defined: 30
+    tested: 10
+  policy_finding_severity:
+    low: 15
+    medium: 35
+    high: 70
+    critical: 95
+
+risk_rating_thresholds:
+  low:
+    min: 0
+    max: 24
+  medium:
+    min: 25
+    max: 49
+  high:
+    min: 50
+    max: 74
+  critical:
+    min: 75
+    max: 100

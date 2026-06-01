@@ -33,6 +33,16 @@ Milestone 3 converts each AI inventory record into governance findings by runnin
 
 The current policy checks evaluate minimum control readiness across ownership, risk management, production approval, production monitoring, documentation, access control, cost accountability, and incident process readiness. These findings will later become inputs to risk scoring, exception tracking, audit evidence packs, and executive reporting.
 
+## Risk Scoring
+
+Milestone 4 turns inventory and policy findings into system-level risk scores. The scoring engine uses three local inputs:
+
+- AI inventory attributes such as risk tier, lifecycle status, deployment environment, data sensitivity, monitoring status, access review status, approval status, model card status, cost center, and incident process status
+- Governance policy findings, especially failed and warning results
+- Configurable weights and lookup values from `config/risk_scoring.yaml`
+
+Each system receives component scores, an overall 0-100 score, a risk rating, a remediation priority, and a recommended action. These scores will support later risk registers, access review prioritisation, audit evidence reporting, incident workflows, and executive summaries.
+
 ## Current Milestone
 
-Milestone 3 implements local governance policy checks against the synthetic AI system inventory. No AWS services are connected, and no real data is used.
+Milestone 4 implements local risk scoring against synthetic inventory and policy findings. No AWS services are connected, and no real data is used.

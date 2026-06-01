@@ -144,11 +144,28 @@ Expected local outputs:
 
 The findings are generated from local synthetic records only. No AWS services are connected and no real operational data is used.
 
+## Milestone 4: Risk Scoring
+
+Milestone 4 adds local, config-driven AI governance risk scoring. It combines AI system inventory attributes, governance policy findings, and weights from `config/risk_scoring.yaml` to calculate component scores, an overall 0-100 risk score, a risk rating, a remediation priority, and a recommended action for each AI system.
+
+Run the risk scoring locally:
+
+```bash
+python3 -m ai_governance_platform.risk_scoring.run_risk_scoring
+```
+
+Expected local outputs:
+
+- `outputs/risk_scores.csv`
+- `outputs/risk_scores.json`
+
+The risk scores are generated from local synthetic records and local policy findings only. No AWS services are connected and no real operational data is used.
+
 ## Current Status
 
-Milestone 3 is complete. The repository contains a clean Python package layout, configuration placeholders, policy placeholders, documentation stubs, CI configuration, a validated synthetic AI system inventory, a config-driven governance policy check engine, local findings exports, and tests for the inventory and policy modules.
+Milestone 4 is complete. The repository contains a clean Python package layout, configuration placeholders, policy placeholders, documentation stubs, CI configuration, a validated synthetic AI system inventory, a config-driven governance policy check engine, local findings exports, config-driven risk scoring, risk score exports, and tests for the inventory, policy, and risk modules.
 
-The platform does not yet include dashboards, AWS integrations, risk scoring, access review workflows, monitoring logic, incident workflows, model card generation, or executive governance reports.
+The platform does not yet include dashboards, AWS integrations, access review workflows, audit simulation, monitoring logic, incident workflows, model card generation, or executive governance reports.
 
 ## How To Run Locally
 

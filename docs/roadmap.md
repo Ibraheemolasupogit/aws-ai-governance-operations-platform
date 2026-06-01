@@ -30,11 +30,14 @@ Status: implemented.
 - Risk score exports
 - Tests for scoring rules and summary outputs
 
+Status: implemented.
+
 ## Milestone 5: Operations Signals
 
-- Local audit, monitoring, access, and cost summaries
+- Access review and audit event simulation
+- Local audit, monitoring, and cost summaries
 - Synthetic sample inputs
-- Governance findings output
+- Evidence-ready governance outputs
 
 ## Milestone 6: Evidence and Reporting
 
