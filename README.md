@@ -110,11 +110,28 @@ aws-ai-governance-operations-platform/
 5. Milestone 5: Model cards, risk register, incident tracking, and evidence pack generation.
 6. Milestone 6: Executive reporting and portfolio-ready documentation.
 
+## Milestone 2: AI System Inventory And Model Catalogue
+
+Milestone 2 adds the first functional local module: a synthetic AI system inventory and model catalogue for ML and GenAI systems. The inventory records capture ownership, business purpose, lifecycle status, deployment environment, risk tier, data sensitivity, approval status, monitoring status, model card status, access review status, cost center, and planned AWS service mapping.
+
+Run the inventory generator locally:
+
+```bash
+python3 -m ai_governance_platform.inventory.run_inventory
+```
+
+Expected local outputs:
+
+- `outputs/ai_system_inventory.csv`
+- `outputs/ai_system_inventory.json`
+
+The generated records are synthetic and are intended to support later governance checks, access review, risk scoring, cost monitoring, model cards, incident tracking, and audit evidence reporting.
+
 ## Current Status
 
-Milestone 1 is a foundation milestone. The repository contains a clean Python package layout, configuration placeholders, policy placeholders, documentation stubs, CI configuration, and a basic project structure test.
+Milestone 2 is complete. The repository contains a clean Python package layout, configuration placeholders, policy placeholders, documentation stubs, CI configuration, a validated synthetic AI system inventory, and tests for the inventory schema, generator, and exporters.
 
-The platform does not yet include business logic, dashboards, synthetic datasets, AWS integrations, or generated reports.
+The platform does not yet include dashboards, AWS integrations, risk scoring, policy checks, monitoring logic, incident workflows, model card generation, or generated governance reports.
 
 ## How To Run Locally
 
@@ -129,6 +146,7 @@ Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+pip install -e .
 ```
 
 Run tests:
