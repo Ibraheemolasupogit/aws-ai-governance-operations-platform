@@ -1,0 +1,13 @@
+scoring_weights:
+  business_criticality: 0.20
+  data_sensitivity: 0.20
+  deployment_exposure: 0.15
+  access_risk: 0.15
+  monitoring_maturity: 0.10
+  cost_risk: 0.10
+  compliance_gaps: 0.10
+risk_tier_thresholds:
+  low: 0
+  medium: 40
+  high: 70
+  critical: 90

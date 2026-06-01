@@ -1,0 +1,28 @@
+capability_service_mapping:
+  identity_and_access_review:
+    - IAM
+    - AWS Organizations
+  audit_event_tracking:
+    - CloudTrail
+    - S3
+  operational_monitoring:
+    - CloudWatch
+    - EventBridge
+  configuration_and_compliance:
+    - AWS Config
+  model_catalogue:
+    - SageMaker Model Registry
+  generative_ai_governance:
+    - Bedrock
+  cost_monitoring:
+    - Budgets
+    - Cost Explorer
+  workflow_orchestration:
+    - EventBridge
+    - Lambda
+    - Step Functions
+  metadata_storage:
+    - DynamoDB
+    - S3
+  executive_reporting:
+    - QuickSight

@@ -1,0 +1,9 @@
+monthly_thresholds_usd:
+  bedrock_usage: 500
+  sagemaker_endpoint: 1000
+  training_jobs: 750
+  storage: 250
+  total_ai_platform_cost: 3000
+alert_levels:
+  warning_percent: 80
+  critical_percent: 100

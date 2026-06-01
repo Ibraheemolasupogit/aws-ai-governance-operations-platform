@@ -1,0 +1,33 @@
+rules:
+  owner_required:
+    enabled: true
+    severity: high
+    description: Each AI system must have a named accountable owner.
+  risk_tier_required:
+    enabled: true
+    severity: high
+    description: Each AI system must have an assigned risk tier.
+  approval_required_for_production:
+    enabled: true
+    severity: critical
+    description: Production deployments must have recorded approval.
+  monitoring_required_for_production:
+    enabled: true
+    severity: critical
+    description: Production deployments must define monitoring expectations.
+  model_card_required:
+    enabled: true
+    severity: medium
+    description: Governed AI systems should have a model card or equivalent record.
+  access_review_required:
+    enabled: true
+    severity: high
+    description: Access to governed AI systems must be periodically reviewed.
+  cost_threshold_required:
+    enabled: true
+    severity: medium
+    description: AI systems should map to an approved cost threshold.
+  incident_process_required:
+    enabled: true
+    severity: high
+    description: AI systems must have an incident escalation process.

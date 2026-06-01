@@ -1,0 +1,18 @@
+environment: local
+project_name: aws-ai-governance-operations-platform
+governance_version: 0.1.0
+default_risk_tiers:
+  - low
+  - medium
+  - high
+  - critical
+default_model_statuses:
+  - proposed
+  - in_review
+  - approved
+  - deployed
+  - retired
+default_deployment_environments:
+  - development
+  - staging
+  - production
