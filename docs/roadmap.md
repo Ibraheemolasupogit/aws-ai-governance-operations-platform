@@ -57,7 +57,9 @@ Status: implemented.
 - Remediation tracking
 - Links to access, audit, cost, monitoring, and policy evidence
 
-## Milestone 8: Evidence and Reporting
+Status: implemented.
+
+## Milestone 8: Model Cards And Evidence Reporting
 
 - Model card templates
 - Audit evidence pack

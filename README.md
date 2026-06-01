@@ -211,11 +211,30 @@ Expected local outputs:
 
 The cost and monitoring records are synthetic local operational summaries only. No Cost Explorer, Budgets, CloudWatch, Bedrock, SageMaker, or AWS APIs are used.
 
+## Milestone 7: Incident And Risk Register
+
+Milestone 7 consolidates local governance and operations signals into an AI incident register, AI risk register, and remediation tracking outputs. Incidents and risks are derived from policy findings, access review issues, audit events, cost anomalies, monitoring degradation, drift indicators, guardrail signals, and risk scores.
+
+Run incident and risk register generation locally:
+
+```bash
+python3 -m ai_governance_platform.incident_management.run_incident_register
+```
+
+Expected local outputs:
+
+- `outputs/incident_register.csv`
+- `outputs/incident_register.json`
+- `outputs/model_risk_register.csv`
+- `outputs/model_risk_register.json`
+
+The registers are generated from synthetic local data only and are intended to demonstrate governance operations ownership, prioritisation, remediation, and evidence traceability.
+
 ## Current Status
 
-Milestone 6 is complete. The repository contains a clean Python package layout, synthetic AI inventory, governance policy checks, risk scoring, IAM-style access review simulation, CloudTrail-style audit event simulation, cost monitoring, model/system monitoring, local exports, and tests across the implemented modules.
+Milestone 7 is complete. The repository contains synthetic AI inventory, governance policy checks, risk scoring, access review, audit simulation, cost monitoring, model/system monitoring, incident register generation, risk register generation, local exports, and tests across the implemented modules.
 
-The platform does not yet include dashboards, AWS integrations, incident register workflows, model card generation, evidence packs, or executive governance reports.
+The platform does not yet include dashboards, AWS integrations, model card generation, final evidence packs, or executive governance reports.
 
 ## How To Run Locally
 

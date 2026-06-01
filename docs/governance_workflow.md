@@ -59,6 +59,14 @@ Monitoring summaries support operational governance by tracking CloudWatch-style
 
 These outputs will feed future incident and risk registers, audit evidence reporting, cost governance reviews, and executive summaries.
 
+## Incident And Risk Register
+
+Milestone 7 consolidates governance, access, audit, cost, monitoring, and risk scoring outputs into actionable registers. Incidents are created from failed policy checks, access violations, high-severity audit failures, cost anomalies, threshold breaches, degraded monitoring, drift alerts, guardrail violations, and elevated risk scores.
+
+The risk register supports prioritisation and recurring governance review by grouping system-level issues into categories such as governance, access control, model performance, responsible AI, cost management, operational resilience, auditability, and data sensitivity.
+
+Remediation tracking connects each issue to an owner, priority, target resolution date, recommended action, residual risk, and evidence reference.
+
 ## Current Milestone
 
-Milestone 6 implements local cost and monitoring summaries. No AWS services are connected, and no real data is used.
+Milestone 7 implements local incident and risk register generation. No AWS services are connected, and no real data is used.
