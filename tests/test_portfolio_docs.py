@@ -21,7 +21,7 @@ README_SECTIONS = [
     "## Generated Outputs",
     "## AWS Service Mapping",
     "## Skills Demonstrated",
-    "## Interview Talking Points",
+    "## Portfolio Positioning",
     "## Future Enhancements",
     "## Disclaimer",
 ]

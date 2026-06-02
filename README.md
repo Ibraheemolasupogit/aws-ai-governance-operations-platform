@@ -230,13 +230,19 @@ See `docs/aws_service_mapping.md` and `config/aws_architecture_mapping.yaml` for
 - Model risk and incident management
 - Cost governance and operational monitoring
 
-## Interview Talking Points
+## Portfolio Positioning
 
-- This is not a normal model-training project; it is the governance and operations layer around AI systems.
-- It demonstrates how inventory, policy checks, access review, monitoring, cost, audit events, incidents, risk registers, model cards, and executive reporting connect.
-- It uses local synthetic data to show the operating model without requiring AWS credentials or cloud spend.
-- It maps cleanly to AWS services such as IAM, CloudTrail, CloudWatch, AWS Config, SageMaker Model Registry, Bedrock, Budgets, Cost Explorer, S3, DynamoDB, EventBridge, Lambda, Step Functions, and QuickSight.
-- It is built to support portfolio discussion around AI governance, responsible AI, MLOps, LLMOps, audit readiness, and cloud platform operations.
+This project demonstrates the governance and operations layer that sits around AI systems once they move beyond experimentation. It is designed to show practical capability across AI governance operations, responsible AI controls, model risk management, MLOps and LLMOps operating practices, auditability, evidence generation, access review, least-privilege governance, cost oversight, model/system monitoring, and AWS-aligned architecture design.
+
+Unlike a model-training demo, this repository focuses on the controls, workflows, evidence, and reporting needed to operate ML and GenAI systems responsibly. The implementation is intentionally local and synthetic so the project can be reviewed, tested, and extended without cloud credentials, cloud spend, or real sensitive data.
+
+Supporting documentation:
+
+- `docs/portfolio_summary.md`
+- `docs/aws_architecture.md`
+- `docs/operational_workflow.md`
+- `docs/evidence_flow.md`
+- `docs/runbook.md`
 
 ## Future Enhancements
 
