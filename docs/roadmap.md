@@ -73,3 +73,15 @@ Status: implemented.
 - Operational workflow design
 - Deployment and evidence flow diagrams
 - Portfolio-ready architecture narrative
+
+Status: implemented.
+
+## Milestone 10: Final Portfolio Polish
+
+- README refinement
+- Screenshots and documentation polish
+- GitHub topics
+- Final repo run commands
+- CV bullets
+- LinkedIn summary
+- Interview talking points

@@ -258,9 +258,24 @@ Expected local outputs:
 - `reports/model_risk_register.md`
 - `reports/executive_summary.md`
 
+## Milestone 9: AWS Architecture Documentation And Operational Workflow
+
+Milestone 9 adds portfolio-ready AWS architecture and operational workflow documentation. It explains how the local synthetic platform maps to a future AWS AI governance and operations architecture, including service responsibilities, evidence flow, control flow, governance cadence, and phased implementation.
+
+Architecture documents created:
+
+- `docs/aws_architecture.md`
+- `docs/aws_service_mapping.md`
+- `docs/operational_workflow.md`
+- `docs/evidence_flow.md`
+- `docs/aws_implementation_roadmap.md`
+- `docs/architecture_diagram.md`
+
+The AWS mapping is architectural design documentation only. This repository is still local-only: it does not provision AWS resources, connect to AWS, call AWS APIs, or deploy infrastructure.
+
 ## Current Status
 
-Milestone 8 is complete. The repository contains synthetic AI inventory, governance policy checks, risk scoring, access review, audit simulation, cost monitoring, model/system monitoring, incident and risk registers, model cards, governance reports, local exports, and tests across the implemented modules.
+Milestone 9 is complete. The repository contains synthetic AI inventory, governance policy checks, risk scoring, access review, audit simulation, cost monitoring, model/system monitoring, incident and risk registers, model cards, governance reports, AWS architecture documentation, local exports, and tests across the implemented modules.
 
 The platform does not yet include dashboards, AWS integrations, or production service integrations.
 

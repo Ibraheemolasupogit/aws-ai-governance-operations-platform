@@ -1,28 +1,177 @@
-capability_service_mapping:
-  identity_and_access_review:
-    - IAM
-    - AWS Organizations
-  audit_event_tracking:
-    - CloudTrail
-    - S3
-  operational_monitoring:
-    - CloudWatch
-    - EventBridge
-  configuration_and_compliance:
-    - AWS Config
-  model_catalogue:
-    - SageMaker Model Registry
-  generative_ai_governance:
-    - Bedrock
-  cost_monitoring:
-    - Budgets
-    - Cost Explorer
-  workflow_orchestration:
-    - EventBridge
-    - Lambda
-    - Step Functions
-  metadata_storage:
-    - DynamoDB
-    - S3
-  executive_reporting:
-    - QuickSight
+capability_mappings:
+  - capability_name: AI system inventory
+    local_module: ai_governance_platform.inventory
+    local_outputs:
+      - outputs/ai_system_inventory.csv
+      - outputs/ai_system_inventory.json
+    aws_services:
+      - Amazon DynamoDB
+      - Amazon S3
+      - AWS Organizations
+    production_pattern: Store AI system metadata in DynamoDB with evidence snapshots in S3 and account context from AWS Organizations.
+    governance_purpose: Provides authoritative ownership, lifecycle, environment, and system classification records.
+    maturity_stage: implemented_local
+  - capability_name: Model catalogue
+    local_module: ai_governance_platform.inventory
+    local_outputs:
+      - outputs/ai_system_inventory.csv
+      - reports/model_cards/
+    aws_services:
+      - Amazon SageMaker Model Registry
+      - Amazon Bedrock
+      - Amazon S3
+    production_pattern: Synchronize model package metadata, Bedrock application metadata, and model card evidence into governed records.
+    governance_purpose: Supports traceability for ML and GenAI assets across approval, deployment, and review states.
+    maturity_stage: implemented_local
+  - capability_name: Policy checks
+    local_module: ai_governance_platform.policy_checks
+    local_outputs:
+      - outputs/governance_findings.csv
+      - outputs/governance_findings.json
+    aws_services:
+      - AWS Config
+      - AWS Lambda
+      - Amazon EventBridge
+      - Amazon S3
+    production_pattern: Run scheduled and event-driven policy evaluations with Lambda and persist findings to S3.
+    governance_purpose: Converts governance requirements into repeatable evidence-backed findings.
+    maturity_stage: implemented_local
+  - capability_name: Risk scoring
+    local_module: ai_governance_platform.risk_scoring
+    local_outputs:
+      - outputs/risk_scores.csv
+      - outputs/risk_scores.json
+    aws_services:
+      - AWS Lambda
+      - Amazon DynamoDB
+      - Amazon S3
+      - AWS Step Functions
+    production_pattern: Calculate scores from inventory and findings, store latest scores in DynamoDB, and archive score snapshots in S3.
+    governance_purpose: Prioritizes remediation, reporting, risk committee review, and incident response.
+    maturity_stage: implemented_local
+  - capability_name: Access review
+    local_module: ai_governance_platform.access_review
+    local_outputs:
+      - outputs/access_review.csv
+      - outputs/access_review.json
+    aws_services:
+      - AWS IAM
+      - AWS Organizations
+      - AWS CloudTrail
+      - Amazon S3
+    production_pattern: Ingest IAM principals, roles, account context, and access events to produce review evidence.
+    governance_purpose: Supports least privilege, privileged access review, MFA evidence, and access recertification.
+    maturity_stage: implemented_local
+  - capability_name: Audit event simulation
+    local_module: ai_governance_platform.audit
+    local_outputs:
+      - outputs/audit_events.csv
+      - outputs/audit_events.json
+    aws_services:
+      - AWS CloudTrail
+      - Amazon CloudWatch
+      - Amazon S3
+      - Amazon EventBridge
+    production_pattern: Capture CloudTrail and CloudWatch events into S3 and route important changes through EventBridge.
+    governance_purpose: Provides traceability for model, access, approval, monitoring, policy, risk, and incident activity.
+    maturity_stage: implemented_local
+  - capability_name: Cost monitoring
+    local_module: ai_governance_platform.cost_management
+    local_outputs:
+      - outputs/cost_monitoring.csv
+      - outputs/cost_monitoring.json
+    aws_services:
+      - AWS Budgets
+      - AWS Cost Explorer
+      - Amazon CloudWatch
+      - Amazon S3
+    production_pattern: Ingest Cost Explorer and Budgets data, evaluate thresholds, and archive monthly cost evidence.
+    governance_purpose: Links AI system ownership to financial governance, threshold breaches, and anomaly review.
+    maturity_stage: implemented_local
+  - capability_name: Model and system monitoring
+    local_module: ai_governance_platform.monitoring
+    local_outputs:
+      - outputs/model_monitoring.csv
+      - outputs/model_monitoring.json
+    aws_services:
+      - Amazon CloudWatch
+      - Amazon SageMaker Model Monitor
+      - Amazon Bedrock
+      - Amazon EventBridge
+    production_pattern: Use CloudWatch metrics, SageMaker monitoring outputs, Bedrock guardrail signals, and EventBridge alerts.
+    governance_purpose: Tracks latency, errors, drift, quality, guardrails, availability, alerts, and retraining advisories.
+    maturity_stage: implemented_local
+  - capability_name: Incident register
+    local_module: ai_governance_platform.incident_management
+    local_outputs:
+      - outputs/incident_register.csv
+      - outputs/incident_register.json
+    aws_services:
+      - AWS Step Functions
+      - AWS Lambda
+      - Amazon DynamoDB
+      - Amazon EventBridge
+    production_pattern: Open and update incidents from governance events through Step Functions and DynamoDB-backed workflow state.
+    governance_purpose: Connects detected issues to owners, priorities, target dates, remediation, and residual risk.
+    maturity_stage: implemented_local
+  - capability_name: Risk register
+    local_module: ai_governance_platform.incident_management
+    local_outputs:
+      - outputs/model_risk_register.csv
+      - outputs/model_risk_register.json
+    aws_services:
+      - Amazon DynamoDB
+      - Amazon S3
+      - AWS Step Functions
+      - Amazon QuickSight
+    production_pattern: Maintain current risk records in DynamoDB, archive evidence in S3, and expose reporting views in QuickSight.
+    governance_purpose: Supports recurring risk review, mitigation tracking, and executive risk visibility.
+    maturity_stage: implemented_local
+  - capability_name: Model cards
+    local_module: ai_governance_platform.model_cards
+    local_outputs:
+      - outputs/model_cards.csv
+      - outputs/model_cards.json
+      - reports/model_cards/
+    aws_services:
+      - Amazon SageMaker Model Registry
+      - Amazon Bedrock
+      - Amazon S3
+    production_pattern: Generate model cards from registry metadata, Bedrock application metadata, monitoring evidence, and review records.
+    governance_purpose: Documents intended use, limitations, responsible AI controls, monitoring, approval, and risk posture.
+    maturity_stage: implemented_local
+  - capability_name: Governance reports
+    local_module: ai_governance_platform.reporting
+    local_outputs:
+      - reports/ai_governance_report.md
+      - outputs/governance_report_summary.csv
+      - outputs/governance_report_summary.json
+    aws_services:
+      - Amazon S3
+      - Amazon QuickSight
+      - AWS Step Functions
+    production_pattern: Publish governed report artifacts to S3 and dashboard summary metrics in QuickSight.
+    governance_purpose: Converts technical findings into governance review material and operating metrics.
+    maturity_stage: implemented_local
+  - capability_name: Evidence pack
+    local_module: ai_governance_platform.reporting
+    local_outputs:
+      - reports/audit_evidence_pack.md
+    aws_services:
+      - Amazon S3
+      - AWS CloudTrail
+      - Amazon CloudWatch
+      - AWS Config
+    production_pattern: Assemble evidence from S3-backed logs, CloudTrail, CloudWatch, Config, and governance records.
+    governance_purpose: Supports audit readiness and repeatable evidence retrieval.
+    maturity_stage: implemented_local
+  - capability_name: Executive summary
+    local_module: ai_governance_platform.reporting
+    local_outputs:
+      - reports/executive_summary.md
+    aws_services:
+      - Amazon QuickSight
+      - Amazon S3
+    production_pattern: Publish executive metrics and narrative summaries from curated governance data.
+    governance_purpose: Translates AI governance operations into business-level risks, strengths, and priority actions.
+    maturity_stage: implemented_local
