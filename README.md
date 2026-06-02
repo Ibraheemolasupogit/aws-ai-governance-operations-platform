@@ -2,267 +2,41 @@
 
 ## One-Line Summary
 
-A local-first, AWS-oriented AI Governance & Operations Platform foundation for governing ML and GenAI systems across inventory, risk, monitoring, auditability, policy review, cost, and reporting workflows.
+A local-first, AWS-oriented AI Governance & Operations Platform for ML and GenAI systems, covering inventory, governance policy checks, risk scoring, access review, auditability, cost monitoring, model monitoring, incident tracking, model cards, and executive reporting.
 
 ## Problem Statement
 
-Organizations adopting machine learning and generative AI need a practical way to understand which AI systems exist, who owns them, how risky they are, whether they are monitored, and whether they can produce evidence for audit and governance reviews. In many environments, this information is fragmented across cloud services, spreadsheets, model registries, logs, dashboards, ticket queues, and policy documents.
+Organizations adopting ML and GenAI need to know which AI systems exist, who owns them, how risky they are, whether they are approved and monitored, who has access, how much they cost, and whether they can produce credible evidence for audit and governance review.
 
-This repository establishes the foundation for a portfolio-grade platform that will eventually bring those signals together into a lightweight governance and operations layer.
+In real environments, that information is often fragmented across model registries, cloud logs, access systems, spreadsheets, dashboards, ticket queues, cost tools, and policy documents. This project demonstrates how those signals can be organized into a practical governance operations layer.
 
 ## Why This Project Matters
 
-AI governance is no longer only a policy exercise. Teams need operational controls that connect responsible AI expectations with engineering workflows, cloud operations, cost management, incident response, and executive reporting.
+AI governance is not only a policy problem. It is an operating model problem. Teams need repeatable controls that connect responsible AI expectations with MLOps, LLMOps, cloud operations, security, auditability, cost management, incident response, and executive reporting.
 
-This project is designed to demonstrate how an AWS-oriented platform could support:
+This repository shows how an AWS-oriented AI governance platform could work before connecting to real cloud services.
 
-- AI system inventory
-- Model registry-style catalogue
+## What The Platform Does
+
+The platform generates synthetic local evidence for:
+
+- AI system inventory and model catalogue
 - Governance policy checks
-- Access control review
-- CloudTrail-style audit event simulation
-- CloudWatch-style system health monitoring
-- Cost monitoring
-- Drift and quality monitoring summaries
-- Guardrail and compliance checks
 - Risk scoring
-- Incident and risk register
+- IAM-style access review
+- CloudTrail-style audit events
+- Cost monitoring and threshold checks
+- CloudWatch-style model/system monitoring
+- Drift, quality, latency, error-rate, and guardrail summaries
+- Incident register and model risk register
 - Model cards
-- Audit evidence pack
-- Executive reporting
+- Governance report, audit evidence pack, model risk summary, and executive summary
 
-## Target Users
+## Architecture Overview
 
-- AI governance and risk teams
-- MLOps and LLMOps engineers
-- Cloud platform teams
-- Security and compliance reviewers
-- Data science and machine learning leaders
-- Portfolio reviewers assessing applied AWS, AI governance, and operations capability
+The implemented repository is a local Python package with modular components under `src/ai_governance_platform/`. Each module generates, validates, checks, exports, or reports on synthetic governance data.
 
-## Core Capabilities Planned
-
-- Maintain an inventory of ML and GenAI systems, owners, environments, and lifecycle status.
-- Track model catalogue metadata similar to a model registry.
-- Run local policy checks against governance requirements.
-- Review access control posture and ownership accountability.
-- Simulate CloudTrail-style audit events with local sample logs.
-- Summarize CloudWatch-style health and operational monitoring signals.
-- Track cost thresholds and cost risk for AI workloads.
-- Summarize drift, quality, and monitoring maturity signals.
-- Capture guardrail, compliance, and responsible AI review outcomes.
-- Calculate configurable risk scores and risk tiers.
-- Maintain incident, issue, and risk register records.
-- Generate model card and audit evidence outputs.
-- Produce executive-friendly governance and operations reports.
-
-## AWS Services Mapped
-
-This project is local-only for now, but its planned architecture maps to AWS services commonly used in AI governance and operations:
-
-- IAM for identity and access controls
-- AWS Organizations for account and organizational structure
-- CloudTrail for audit events
-- CloudWatch for logs, metrics, alarms, and operational health
-- AWS Config for configuration and compliance signals
-- S3 for evidence, reports, and metadata storage
-- SageMaker Model Registry for model catalogue concepts
-- Amazon Bedrock for GenAI workload governance concepts
-- AWS Budgets and Cost Explorer for cost tracking
-- EventBridge and Lambda for event-driven checks
-- DynamoDB for lightweight platform metadata storage
-- Step Functions for governance workflow orchestration
-- QuickSight for executive reporting concepts
-
-No AWS connections or real AWS resources are created in this milestone.
-
-## Repository Structure
-
-```text
-aws-ai-governance-operations-platform/
-├── config/                 # Local YAML configuration for governance, risk, policy, cost, and AWS mapping
-├── data/                   # Placeholder folders for future local synthetic inputs
-├── docs/                   # Architecture, AWS mapping, workflow, and roadmap notes
-├── policies/               # Governance and operating policy placeholders
-├── reports/                # Generated report outputs, ignored except for .gitkeep
-├── outputs/                # Generated data outputs, ignored except for .gitkeep
-├── src/ai_governance_platform/
-│   ├── access_review/      # Future access review logic
-│   ├── audit/              # Future audit event parsing and evidence support
-│   ├── cost_management/    # Future cost threshold and cost risk logic
-│   ├── incident_management/# Future incident and risk register support
-│   ├── inventory/          # Future AI system inventory logic
-│   ├── model_cards/        # Future model card generation support
-│   ├── monitoring/         # Future health, drift, and quality monitoring summaries
-│   ├── policy_checks/      # Future governance rule evaluation
-│   ├── reporting/          # Future audit and executive reporting outputs
-│   ├── risk_scoring/       # Future configurable risk scoring
-│   └── utils/              # Shared local utilities
-└── tests/                  # Initial structure and future behavior tests
-```
-
-## MVP Roadmap
-
-1. Milestone 1: Repository setup and project foundation.
-2. Milestone 2: Local AI system inventory and model catalogue using synthetic sample data.
-3. Milestone 3: Config-driven governance policy checks and risk scoring.
-4. Milestone 4: Local audit, monitoring, cost, and access review summaries.
-5. Milestone 5: Model cards, risk register, incident tracking, and evidence pack generation.
-6. Milestone 6: Executive reporting and portfolio-ready documentation.
-
-## Milestone 2: AI System Inventory And Model Catalogue
-
-Milestone 2 adds the first functional local module: a synthetic AI system inventory and model catalogue for ML and GenAI systems. The inventory records capture ownership, business purpose, lifecycle status, deployment environment, risk tier, data sensitivity, approval status, monitoring status, model card status, access review status, cost center, and planned AWS service mapping.
-
-Run the inventory generator locally:
-
-```bash
-python3 -m ai_governance_platform.inventory.run_inventory
-```
-
-Expected local outputs:
-
-- `outputs/ai_system_inventory.csv`
-- `outputs/ai_system_inventory.json`
-
-The generated records are synthetic and are intended to support later governance checks, access review, risk scoring, cost monitoring, model cards, incident tracking, and audit evidence reporting.
-
-## Milestone 3: Governance Policy Checks
-
-Milestone 3 adds a local, config-driven governance policy check engine. It evaluates the synthetic AI inventory against minimum responsible AI operating controls, including ownership, risk tier assignment, production approval, production monitoring readiness, high-risk model card status, production access review completion, cost center assignment, and incident process readiness.
-
-Run the policy checks locally:
-
-```bash
-python3 -m ai_governance_platform.policy_checks.run_policy_checks
-```
-
-Expected local outputs:
-
-- `outputs/governance_findings.csv`
-- `outputs/governance_findings.json`
-
-The findings are generated from local synthetic records only. No AWS services are connected and no real operational data is used.
-
-## Milestone 4: Risk Scoring
-
-Milestone 4 adds local, config-driven AI governance risk scoring. It combines AI system inventory attributes, governance policy findings, and weights from `config/risk_scoring.yaml` to calculate component scores, an overall 0-100 risk score, a risk rating, a remediation priority, and a recommended action for each AI system.
-
-Run the risk scoring locally:
-
-```bash
-python3 -m ai_governance_platform.risk_scoring.run_risk_scoring
-```
-
-Expected local outputs:
-
-- `outputs/risk_scores.csv`
-- `outputs/risk_scores.json`
-
-The risk scores are generated from local synthetic records and local policy findings only. No AWS services are connected and no real operational data is used.
-
-## Milestone 5: Access Review And Audit Event Simulation
-
-Milestone 5 adds local synthetic evidence modules for IAM-style access review and CloudTrail-style audit event simulation. Access review records show who has access to AI systems, whether privileged or production access is risky, and which access records need remediation. Audit events simulate traceable model, access, approval, monitoring, guardrail, policy, risk, and incident activity.
-
-Run the access review locally:
-
-```bash
-python3 -m ai_governance_platform.access_review.run_access_review
-```
-
-Run the audit simulation locally:
-
-```bash
-python3 -m ai_governance_platform.audit.run_audit_simulation
-```
-
-Expected local outputs:
-
-- `outputs/access_review.csv`
-- `outputs/access_review.json`
-- `outputs/audit_events.csv`
-- `outputs/audit_events.json`
-
-The access review and audit records are synthetic local evidence only. No IAM, CloudTrail, or AWS APIs are used.
-
-## Milestone 6: Cost And Monitoring Summaries
-
-Milestone 6 adds local synthetic operational telemetry for AI platform cost monitoring and CloudWatch-style model/system monitoring. Cost records estimate monthly Bedrock-style, SageMaker-style, training, inference, and storage costs, then evaluate threshold status and anomaly indicators. Monitoring records summarize latency, error rate, drift, quality, availability, guardrail violations, hallucination risk flags, alert counts, health status, and retraining advisory.
-
-Run cost monitoring locally:
-
-```bash
-python3 -m ai_governance_platform.cost_management.run_cost_monitoring
-```
-
-Run model/system monitoring locally:
-
-```bash
-python3 -m ai_governance_platform.monitoring.run_monitoring
-```
-
-Expected local outputs:
-
-- `outputs/cost_monitoring.csv`
-- `outputs/cost_monitoring.json`
-- `outputs/model_monitoring.csv`
-- `outputs/model_monitoring.json`
-
-The cost and monitoring records are synthetic local operational summaries only. No Cost Explorer, Budgets, CloudWatch, Bedrock, SageMaker, or AWS APIs are used.
-
-## Milestone 7: Incident And Risk Register
-
-Milestone 7 consolidates local governance and operations signals into an AI incident register, AI risk register, and remediation tracking outputs. Incidents and risks are derived from policy findings, access review issues, audit events, cost anomalies, monitoring degradation, drift indicators, guardrail signals, and risk scores.
-
-Run incident and risk register generation locally:
-
-```bash
-python3 -m ai_governance_platform.incident_management.run_incident_register
-```
-
-Expected local outputs:
-
-- `outputs/incident_register.csv`
-- `outputs/incident_register.json`
-- `outputs/model_risk_register.csv`
-- `outputs/model_risk_register.json`
-
-The registers are generated from synthetic local data only and are intended to demonstrate governance operations ownership, prioritisation, remediation, and evidence traceability.
-
-## Milestone 8: Model Cards And Evidence Pack Reporting
-
-Milestone 8 converts local governance outputs into portfolio-ready reporting artifacts: model cards, a governance report, an audit evidence pack, a model risk summary, and an executive summary.
-
-Run model card generation locally:
-
-```bash
-python3 -m ai_governance_platform.model_cards.run_model_cards
-```
-
-Run reporting locally:
-
-```bash
-python3 -m ai_governance_platform.reporting.run_reporting
-```
-
-Expected local outputs:
-
-- `outputs/model_cards.csv`
-- `outputs/model_cards.json`
-- `outputs/governance_report_summary.csv`
-- `outputs/governance_report_summary.json`
-- `reports/model_cards/`
-- `reports/ai_governance_report.md`
-- `reports/audit_evidence_pack.md`
-- `reports/model_risk_register.md`
-- `reports/executive_summary.md`
-
-## Milestone 9: AWS Architecture Documentation And Operational Workflow
-
-Milestone 9 adds portfolio-ready AWS architecture and operational workflow documentation. It explains how the local synthetic platform maps to a future AWS AI governance and operations architecture, including service responsibilities, evidence flow, control flow, governance cadence, and phased implementation.
-
-Architecture documents created:
+The target AWS architecture is documented in:
 
 - `docs/aws_architecture.md`
 - `docs/aws_service_mapping.md`
@@ -271,13 +45,49 @@ Architecture documents created:
 - `docs/aws_implementation_roadmap.md`
 - `docs/architecture_diagram.md`
 
-The AWS mapping is architectural design documentation only. This repository is still local-only: it does not provision AWS resources, connect to AWS, call AWS APIs, or deploy infrastructure.
+## Local-Only Implementation Note
 
-## Current Status
+This project does not connect to AWS, create AWS resources, deploy infrastructure, call AWS APIs, use paid services, or process real data. All data is synthetic and generated locally. The AWS mapping is architecture and portfolio documentation only.
 
-Milestone 9 is complete. The repository contains synthetic AI inventory, governance policy checks, risk scoring, access review, audit simulation, cost monitoring, model/system monitoring, incident and risk registers, model cards, governance reports, AWS architecture documentation, local exports, and tests across the implemented modules.
+## Core Capabilities
 
-The platform does not yet include dashboards, AWS integrations, or production service integrations.
+- Inventory: tracks AI systems, ownership, lifecycle, sensitivity, approval, monitoring, access review, cost center, and AWS service mapping.
+- Policy checks: evaluates minimum governance controls and exports pass/warning/fail findings.
+- Risk scoring: calculates system-level governance risk scores from inventory and findings.
+- Access review: simulates IAM-style access records, privileged access, MFA, expiry, service roles, and review findings.
+- Audit simulation: generates CloudTrail-style events for model, access, approval, monitoring, policy, risk, and incident activity.
+- Cost governance: estimates monthly AI platform costs, threshold breaches, and anomaly indicators.
+- Monitoring: simulates CloudWatch-style health, drift, quality, latency, errors, guardrails, and retraining advisories.
+- Incident and risk registers: converts findings into accountable remediation and risk records.
+- Model cards and reporting: produces readable governance artifacts for portfolio and audit-style review.
+
+## Repository Structure
+
+```text
+aws-ai-governance-operations-platform/
+├── config/                         # Local YAML configuration and AWS capability mapping
+├── data/                           # Placeholder folders for future local synthetic data
+├── docs/                           # Architecture, workflow, roadmap, portfolio, and runbook docs
+├── outputs/                        # Generated CSV/JSON outputs, ignored by Git
+├── policies/                       # Placeholder governance policies
+├── reports/                        # Generated Markdown reports, ignored by Git
+├── scripts/                        # Local helper scripts
+├── src/ai_governance_platform/     # Modular Python package
+└── tests/                          # Pytest coverage across modules and docs
+```
+
+## Milestone Summary
+
+1. Repository foundation and Python package layout.
+2. AI system inventory and model catalogue.
+3. Governance policy checks.
+4. Risk scoring.
+5. Access review and audit event simulation.
+6. Cost and monitoring summaries.
+7. Incident and risk register.
+8. Model cards and evidence pack reporting.
+9. AWS architecture documentation and operational workflow.
+10. Portfolio polish, runbook, CV/LinkedIn material, and final presentation docs.
 
 ## How To Run Locally
 
@@ -295,20 +105,149 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-Run tests:
+Run tests and linting:
 
 ```bash
-pytest
+python3 -m pytest
+python3 -m ruff check .
 ```
 
-Run linting:
+Run all local modules:
 
 ```bash
-ruff check .
+bash scripts/run_all_local.sh
 ```
 
-## Portfolio Positioning
+## Commands By Module
 
-This repository is designed as a professional portfolio project showing practical understanding of AWS-oriented AI governance, MLOps, LLMOps, responsible AI operations, risk management, audit readiness, and cloud operating controls.
+```bash
+python3 -m ai_governance_platform.inventory.run_inventory
+python3 -m ai_governance_platform.policy_checks.run_policy_checks
+python3 -m ai_governance_platform.risk_scoring.run_risk_scoring
+python3 -m ai_governance_platform.access_review.run_access_review
+python3 -m ai_governance_platform.audit.run_audit_simulation
+python3 -m ai_governance_platform.cost_management.run_cost_monitoring
+python3 -m ai_governance_platform.monitoring.run_monitoring
+python3 -m ai_governance_platform.incident_management.run_incident_register
+python3 -m ai_governance_platform.model_cards.run_model_cards
+python3 -m ai_governance_platform.reporting.run_reporting
+```
 
-The project intentionally starts local and lightweight so the architecture, testing discipline, configuration model, and documentation can mature before any cloud integration is introduced.
+## Generated Outputs
+
+Inventory:
+
+- `outputs/ai_system_inventory.csv`
+- `outputs/ai_system_inventory.json`
+
+Policy checks:
+
+- `outputs/governance_findings.csv`
+- `outputs/governance_findings.json`
+
+Risk scoring:
+
+- `outputs/risk_scores.csv`
+- `outputs/risk_scores.json`
+
+Access review:
+
+- `outputs/access_review.csv`
+- `outputs/access_review.json`
+
+Audit events:
+
+- `outputs/audit_events.csv`
+- `outputs/audit_events.json`
+
+Cost monitoring:
+
+- `outputs/cost_monitoring.csv`
+- `outputs/cost_monitoring.json`
+
+Model monitoring:
+
+- `outputs/model_monitoring.csv`
+- `outputs/model_monitoring.json`
+
+Incident and risk registers:
+
+- `outputs/incident_register.csv`
+- `outputs/incident_register.json`
+- `outputs/model_risk_register.csv`
+- `outputs/model_risk_register.json`
+
+Model cards and reporting:
+
+- `outputs/model_cards.csv`
+- `outputs/model_cards.json`
+- `outputs/governance_report_summary.csv`
+- `outputs/governance_report_summary.json`
+
+## Reports Generated
+
+- `reports/model_cards/`
+- `reports/ai_governance_report.md`
+- `reports/audit_evidence_pack.md`
+- `reports/model_risk_register.md`
+- `reports/executive_summary.md`
+
+## AWS Service Mapping
+
+The design maps local capabilities to AWS services including:
+
+- AWS IAM
+- AWS Organizations
+- AWS CloudTrail
+- Amazon CloudWatch
+- AWS Config
+- Amazon S3
+- Amazon SageMaker Model Registry
+- Amazon Bedrock
+- AWS Budgets
+- AWS Cost Explorer
+- Amazon EventBridge
+- AWS Lambda
+- Amazon DynamoDB
+- AWS Step Functions
+- Amazon QuickSight
+
+See `docs/aws_service_mapping.md` and `config/aws_architecture_mapping.yaml` for the detailed capability mapping.
+
+## Skills Demonstrated
+
+- Python package design with `src` layout
+- Pydantic data validation
+- Config-driven governance logic
+- Synthetic data generation
+- Local CSV/JSON/Markdown reporting
+- Pytest coverage
+- Ruff linting
+- AI governance and responsible AI controls
+- MLOps and LLMOps operational thinking
+- AWS architecture mapping
+- Auditability and evidence design
+- Model risk and incident management
+- Cost governance and operational monitoring
+
+## Interview Talking Points
+
+- This is not a normal model-training project; it is the governance and operations layer around AI systems.
+- It demonstrates how inventory, policy checks, access review, monitoring, cost, audit events, incidents, risk registers, model cards, and executive reporting connect.
+- It uses local synthetic data to show the operating model without requiring AWS credentials or cloud spend.
+- It maps cleanly to AWS services such as IAM, CloudTrail, CloudWatch, AWS Config, SageMaker Model Registry, Bedrock, Budgets, Cost Explorer, S3, DynamoDB, EventBridge, Lambda, Step Functions, and QuickSight.
+- It is built to support portfolio discussion around AI governance, responsible AI, MLOps, LLMOps, audit readiness, and cloud platform operations.
+
+## Future Enhancements
+
+- Add real AWS API ingestion behind explicit configuration.
+- Add infrastructure-as-code after security and architecture review.
+- Add authenticated dashboards only if useful.
+- Add richer evidence pack formats such as PDF.
+- Add policy exception workflows and approval history.
+- Add multi-account AWS Organizations support.
+- Add production-grade logging, observability, and secrets handling.
+
+## Disclaimer
+
+This is a synthetic local portfolio project. It does not create real AWS resources, call AWS APIs, use real customer/model data, or provide production governance assurance. It is designed to demonstrate architecture, implementation discipline, and governance operations thinking.
